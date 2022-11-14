@@ -7,3 +7,7 @@ startGame.addEventListener('click', _ => {
     userName == '' ? name.innerHTML = 'Unknown' : name.innerHTML = userName
     controlButtons.remove()
 })
+const duration = 1000,
+    blockContainer = document.querySelector('.memory-game-blocks'),
+    blocks = Array.from(blockContainer.children),
+    orderRange = [...Array(blocks.length).keys()]
