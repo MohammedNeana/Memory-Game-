@@ -4,29 +4,33 @@ let startGame = document.querySelector('.control-buttons span'),
     blockContainer = document.querySelector('.memory-game-blocks')
 
 // ----------------------------- Dispaly Imgs -------------------------
-const imgSrc = [
-    ['../images/javascript.png', 'javascript'],
-    ['../images/javascript.png', 'javascript'],
-    ['./images/react.png', 'react'],
-    ['./images/react.png', 'react'],
-    ['../images/github.png', 'github'],
-    ['../images/github.png', 'github'],
-    ['../images/code.png', 'code'],
-    ['../images/code.png', 'code'],
-    ['../images/html5.png', 'html'],
-    ['../images/html5.png', 'html'],
-    ['../images/css3.png', 'css'],
-    ['../images/css3.png', 'css'],
-    ['../images/nodejs.png', 'nodejs'],
-    ['../images/nodejs.png', 'nodejs'],
-    ['../images/redux.png', 'redux'],
-    ['../images/redux.png', 'redux'],
-    ['../images/visual-studio-code.png', 'vs-code'],
-    ['../images/visual-studio-code.png', 'vs-code'],
-    ['../images/vuejs.png', 'vuejs'],
-    ['../images/vuejs.png', 'vuejs'],
+const arr = [
+    'react',
+    'javascript',
+    'github',
+    'code',
+    'html5',
+    'css3',
+    'nodejs',
+    'redux',
+    'visual-studio-code',
+    'vuejs',
+    'react',
+    'javascript',
+    'github',
+    'code',
+    'html5',
+    'css3',
+    'nodejs',
+    'redux',
+    'visual-studio-code',
+    'vuejs'
 ]
-
+const imgSrc =[]
+function gitImgSrc(arr) {
+    const src = arr.map(arr => imgSrc.push([`../images/${arr}.png`,arr]))
+}
+gitImgSrc(arr)
 function dispayImgs() {
     let container = '';
     imgSrc.map(data =>
