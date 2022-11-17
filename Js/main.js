@@ -1,9 +1,13 @@
 let startGame = document.querySelector('.control-buttons span'),
     name = document.querySelector('.name'),
     controlButtons = document.querySelector('.control-buttons'),
-    blockContainer = document.querySelector('.memory-game-blocks')
+    blockContainer = document.querySelector('.memory-game-blocks'),
+    imgSrc = [],
+    duration = 1000,
+    blocks = Array.from(blockContainer.children),
+    orderRange = [...Array(blocks.length).keys()]
 
-// ----------------------------- Dispaly Imgs -------------------------
+// ------------------------------------ Dispaly Img Src Breakpoint ---------------------------
 const arr = [
     'react',
     'javascript',
@@ -26,11 +30,13 @@ const arr = [
     'visual-studio-code',
     'vuejs'
 ]
-const imgSrc =[]
-function gitImgSrc(arr) {
-    const src = arr.map(arr => imgSrc.push([`../images/${arr}.png`,arr]))
+// ---------------------------- Getting Img Src And Repeat Array Values ---------------------
+function getImgSrc(arr) {
+    const src = arr.map(arr => imgSrc.push([`../images/${arr}.png`, arr]))
 }
-gitImgSrc(arr)
+getImgSrc(arr)
+// console.log(arr.join(' ').repeat(2));
+// ------------------------------- Display Imgs in DOM --------------------------------------
 function dispayImgs() {
     let container = '';
     imgSrc.map(data =>
@@ -44,15 +50,13 @@ function dispayImgs() {
     blockContainer.innerHTML = container
 }
 dispayImgs()
+// ------------------------------- Display UserName and Main Screen ------------------------
 startGame.addEventListener('click', _ => {
     let userName = prompt('Whats Your Name')
     userName == '' ? name.innerHTML = 'Unknown' : name.innerHTML = userName
     controlButtons.remove()
 })
-const duration = 1000,
-    blocks = Array.from(blockContainer.children),
-    orderRange = [...Array(blocks.length).keys()]
-
+// ------------------------------ Add The Order Css Property ------------------------------
 blocks.forEach((block) => {
     const i = Math.floor(Math.random(orderRange) * blocks.length);
     block.style.order = orderRange[i]
