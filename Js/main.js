@@ -70,12 +70,31 @@ blocks.forEach((block) => {
 function flipBlock(selectedBlock) {
     selectedBlock.classList.add('is-flipped')
     const allFlippedBlocks = blocks.filter(flippedBlock => flippedBlock.classList.contains('is-flipped'))
-    allFlippedBlocks.length === 2 && stopClicking()
+    if (allFlippedBlocks.length === 2) {
+        stopClicking()
+        checkMatechedBlocks(allFlippedBlocks[0], allFlippedBlocks[1])
+    }
 }
 // ------------------------------- Stop Clicking Function ----------------------------------- 
 function stopClicking() {
-    blockContainer.classList.add('no-clicking')    
+    blockContainer.classList.add('no-clicking')
     setTimeout(() => {
         blockContainer.classList.remove('no-clicking')
     }, duration);
+}
+// ------------------------------- Check Matched Blocks -------------------------------------
+function checkMatechedBlocks(firstBlock, secondBlock) {
+    const triesElement = document.querySelector('.tries span')
+    if (firstBlock.dataset.technology === secondBlock.dataset.technology) {
+        firstBlock.classList.remove('is-flipped')
+        secondBlock.classList.remove('is-flipped')
+        firstBlock.classList.add('has-match')
+        secondBlock.classList.add('has-match')
+    } else {
+        triesElement.innerHTML = + triesElement.innerHTML + 1
+        setTimeout(() => {
+            firstBlock.classList.remove('is-flipped')
+            secondBlock.classList.remove('is-flipped')
+        },duration)
+    }
 }
