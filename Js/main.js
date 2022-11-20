@@ -33,7 +33,6 @@ function getImgSrc(arr) {
     const src = arr.map(arr => imgSrc.push([`../images/${arr}.png`, arr]))
 }
 getImgSrc(arr)
-// console.log(arr.join(' ').repeat(2));
 // ------------------------------- Display Imgs in DOM --------------------------------------
 function dispayImgs() {
     let container = '';
@@ -49,7 +48,7 @@ function dispayImgs() {
 }
 dispayImgs()
 // ------------------------- Constants -----------------------------------------------------
-const duration = 1000,
+const duration = 500,
     blocks = Array.from(blockContainer.children),
     orderRange = [...Array(blocks.length).keys()]
 // ------------------------------- Display UserName and Main Screen ------------------------
