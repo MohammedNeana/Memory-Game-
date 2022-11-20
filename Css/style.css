@@ -6,7 +6,7 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-/* .control-buttons {
+.control-buttons {
     position: fixed;
     left: 0;
     top: 0;
@@ -27,7 +27,7 @@ body {
     padding: 15px 25px;
     border-radius: 4px;
     cursor: pointer;
-} */
+}
 
 .info-container {
     width: 1080px;
@@ -104,10 +104,6 @@ body {
     .info-container {
         width: auto;
     }
-
-    /* .row>* {
-        padding: 0 !important;
-    } */
 }
 .row>* {
     padding: 0 !important;
