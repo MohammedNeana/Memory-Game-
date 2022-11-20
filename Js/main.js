@@ -48,7 +48,7 @@ function dispayImgs() {
 }
 dispayImgs()
 // ------------------------- Constants -----------------------------------------------------
-const duration = 500,
+const duration = 1000,
     blocks = Array.from(blockContainer.children),
     orderRange = [...Array(blocks.length).keys()]
 // ------------------------------- Display UserName and Main Screen ------------------------
