@@ -1,13 +1,11 @@
-let startGame = document.querySelector('.control-buttons span'),
+// ------------------------- Constants -----------------------------------------------------
+const startGame = document.querySelector('.control-buttons span'),
     name = document.querySelector('.name'),
     controlButtons = document.querySelector('.control-buttons'),
     blockContainer = document.querySelector('.memory-game-blocks'),
-    imgSrc = [],
-    duration = 1000,
-    blocks = Array.from(blockContainer.children),
-    orderRange = [...Array(blocks.length).keys()]
+    imgSrc = []
 
-// ------------------------------------ Dispaly Img Src Breakpoint ---------------------------
+// ----------------------------------- Dispaly Img Src Breakpoint ---------------------------
 const arr = [
     'react',
     'javascript',
@@ -50,14 +48,25 @@ function dispayImgs() {
     blockContainer.innerHTML = container
 }
 dispayImgs()
+// ------------------------- Constants -----------------------------------------------------
+const duration = 1000,
+    blocks = Array.from(blockContainer.children),
+    orderRange = [...Array(blocks.length).keys()]
 // ------------------------------- Display UserName and Main Screen ------------------------
 startGame.addEventListener('click', _ => {
     let userName = prompt('Whats Your Name')
     userName == '' ? name.innerHTML = 'Unknown' : name.innerHTML = userName
     controlButtons.remove()
 })
-// ------------------------------ Add The Order Css Property ------------------------------
+// ------------------------------- Add The Order Css Property ------------------------------
 blocks.forEach((block) => {
     const i = Math.floor(Math.random(orderRange) * blocks.length);
     block.style.order = orderRange[i]
+    block.addEventListener('click', () => {
+        flipBlock(block)
+    })
 })
+// ------------------------------ Flip Block Function --------------------------------------
+function flipBlock(selectedBlock) {
+    selectedBlock.classList.add('is-flipped')
+}
