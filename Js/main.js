@@ -69,4 +69,6 @@ blocks.forEach((block) => {
 // ------------------------------ Flip Block Function --------------------------------------
 function flipBlock(selectedBlock) {
     selectedBlock.classList.add('is-flipped')
+    const allFlippedBlocks = blocks.filter(flippedBlock => flippedBlock.classList.contains('is-flipped'))
+    allFlippedBlocks.length === 2 && console.log(2);
 }
