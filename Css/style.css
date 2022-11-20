@@ -6,7 +6,7 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-/* .control-buttons {
+.control-buttons {
     position: fixed;
     left: 0;
     top: 0;
@@ -27,7 +27,7 @@ body {
     padding: 15px 25px;
     border-radius: 4px;
     cursor: pointer;
-} */
+}
 
 .info-container {
     width: 1080px;
@@ -96,4 +96,5 @@ body {
 .memory-game-blocks .game-block.is-flipped,
 .memory-game-blocks .game-block.has-match {
     transform: rotateY(180deg);
+    pointer-events: none;
 }

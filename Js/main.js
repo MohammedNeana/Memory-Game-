@@ -90,8 +90,10 @@ function checkMatechedBlocks(firstBlock, secondBlock) {
         secondBlock.classList.remove('is-flipped')
         firstBlock.classList.add('has-match')
         secondBlock.classList.add('has-match')
+        document.querySelector('#success').play()
     } else {
         triesElement.innerHTML = + triesElement.innerHTML + 1
+        document.querySelector('#failed').play()
         setTimeout(() => {
             firstBlock.classList.remove('is-flipped')
             secondBlock.classList.remove('is-flipped')
