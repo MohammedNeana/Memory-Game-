@@ -70,5 +70,12 @@ blocks.forEach((block) => {
 function flipBlock(selectedBlock) {
     selectedBlock.classList.add('is-flipped')
     const allFlippedBlocks = blocks.filter(flippedBlock => flippedBlock.classList.contains('is-flipped'))
-    allFlippedBlocks.length === 2 && console.log(2);
+    allFlippedBlocks.length === 2 && stopClicking()
+}
+// ------------------------------- Stop Clicking Function ----------------------------------- 
+function stopClicking() {
+    blockContainer.classList.add('no-clicking')    
+    setTimeout(() => {
+        blockContainer.classList.remove('no-clicking')
+    }, duration);
 }
